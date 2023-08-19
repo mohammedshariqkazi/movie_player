@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Movie Website</title>
+</head>
+<body>
+  <header>
+    <h1>Movie Collection</h1>
+  </header>
+  <main>
+     <div class="movie-list">
+      <div class="movie-card" onclick="showPlayer('https://userscloud.com/embed-mnnwozxv18ty.html', 'Movie 1')">
+        <img src="movie1.jpg" alt="Movie 1">
+        <h2>Movie 1</h2>
+      </div>
+      <div class="movie-card" onclick="showPlayer('movie2.mp4', 'Movie 2')">
+        <img src="movie2.jpg" alt="Movie 2">
+        <h2>Movie 2</h2>
+      </div>
+      <!-- Add more movie cards here -->
+    </div>
+    <div class="player-overlay" id="player-overlay">
+      <div class="player-container">
+        <video id="movie-player" controls>
+          Your browser does not support the video tag.
+        </video>
+        <div class="movie-details">
+          <h2 id="player-title"></h2>
+          <p class="movie-released">Released: Date</p>
+          <p class="movie-genre">Genre: Animation, Fantasy, Adventure</p>
+          <p class="movie-casts">Casts: Actor 1, Actor 2, Actor 3</p>
+          <p class="movie-duration">Duration: 2h 15m</p>
+          <p class="movie-country">Country: USA</p>
+          <p class="movie-production">Production: Studio XYZ</p>
+        </div>
+        <button id="close-button" onclick="closePlayer()">Close</button>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
