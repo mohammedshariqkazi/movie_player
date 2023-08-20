@@ -2,11 +2,16 @@ const playerOverlay = document.getElementById('player-overlay');
 const moviePlayer = document.getElementById('movie-player');
 const playerTitle = document.getElementById('player-title');
 const movieDetails = document.querySelector('.movie-details');
+const playerContainer = document.querySelector('.player-container');
 
 function showPlayer(videoSrc, title) {
-  moviePlayer.src = videoSrc;
-  moviePlayer.load();
-  playerTitle.textContent = title;
+  if (videoSrc.includes('iframe')) {
+    playerContainer.innerHTML = videoSrc;
+  } else {
+    moviePlayer.src = videoSrc;
+    moviePlayer.load();
+    playerTitle.textContent = title;
+  }
 
   // Hide the movie details initially
   movieDetails.style.display = 'none';
@@ -50,6 +55,7 @@ function updateMovieDetails(details) {
 function closePlayer() {
   moviePlayer.pause();
   moviePlayer.currentTime = 0;
+  playerContainer.innerHTML = ''; // Clear the player container content
   playerOverlay.style.display = 'none';
   document.body.style.overflow = 'auto';
 }
@@ -58,6 +64,4 @@ playerOverlay.addEventListener('click', function (event) {
   if (event.target === playerOverlay) {
     closePlayer();
   }
-
-
 });
