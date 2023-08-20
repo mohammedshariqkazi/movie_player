@@ -97,3 +97,10 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 }
+
+@media screen and (max-width: 767px) {
+  .player-container iframe {
+    width: 100%; /* Set the width to 100% on mobile devices */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+  }
+}
